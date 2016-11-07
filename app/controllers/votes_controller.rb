@@ -3,6 +3,9 @@ class VotesController < ApplicationController
     authorize! :vote, _movie
 
     _voter.vote(_type)
+
+    MailerWorker.perform_async(current_user.id, _movie.id, _type)
+
     redirect_to root_path, notice: 'Vote cast'
   end
 

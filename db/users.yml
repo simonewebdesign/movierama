@@ -1,9 +1,12 @@
 - name: John McFoo
+  email: john@foo.com
   uid:  'null|johnmcfoo'
 - name: Alice Wallace
+  email: alice@foo.com
   uid:  'null|alice'
 - name: Bob Ablleton
+  email: bob@foo.com
   uid:  'null|bob'
 - name: Charlie O'Callaghan
+  email: charlie@foo.com
   uid:  'null|charlie'
-

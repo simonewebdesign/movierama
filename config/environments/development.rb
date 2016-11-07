@@ -13,8 +13,13 @@ Rails.application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  # We care if the mailer can't send.
+  config.action_mailer.raise_delivery_errors = true
+
+  # mailcatcher.me
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { address: 'localhost', port: 1025 }
+  config.action_mailer.default_url_options = { host: 'https://127.0.0.1:24676' }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

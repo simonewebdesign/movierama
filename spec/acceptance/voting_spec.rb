@@ -40,9 +40,21 @@ RSpec.describe 'vote on movies', type: :feature do
       expect(page).to have_vote_message
     end
 
+    it 'sends an email on movie liked' do
+      expect {
+        page.like('Empire strikes back')
+      }.to change(MailerWorker.jobs, :size).by(1)
+    end
+
     it 'can hate' do
       page.hate('Empire strikes back')
       expect(page).to have_vote_message
+    end
+
+    it 'sends an email on movie hated' do
+      expect {
+        page.hate('Empire strikes back')
+      }.to change(MailerWorker.jobs, :size).by(1)
     end
 
     it 'can unlike' do

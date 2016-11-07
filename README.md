@@ -17,7 +17,7 @@ Github has a nice link. Right there, on the right of your page!
 
 #### Dependencies
 
-Install Ruby 2.1.2 if necessary (if you use `rbenv`, it will yell at you if you
+Install Ruby 2.2.2 if necessary (if you use `rbenv`, it will yell at you if you
 don't).
 
 Run `bundler` as usual:
@@ -55,6 +55,35 @@ Run the application on the corresponding port:
 Then point your browser to https://127.0.0.1:24676
 
 Enjoy!
+
+
+#### Starting sidekiq
+
+Sidekiq is needed for background jobs (e.g. sending emails).
+You can start it with:
+
+    $ bundle exec sidekiq
+
+
+#### Check sent emails
+
+You can use [mailcatcher](https://mailcatcher.me/) to see any email sent via the app.
+
+    $ gem install mailcatcher
+    $ mailcatcher
+
+    # then go to http://localhost:1080/
+
+
+#### Running the test suite
+
+We use RSpec for testing. Run the entire test suite with:
+
+    $ bundle exec rspec
+
+You can use guard to re-run the specs when they change:
+
+    $ bundle exec guard -p
 
 
 #### Getting authentication to work

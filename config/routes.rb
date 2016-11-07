@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   resource :session, only: %i(create destroy)
   get '/auth/:provider/callback', to: 'sessions#create'
 
